@@ -1,7 +1,8 @@
 <h1>新增履歷</h1>
 
-<form>
-  姓名：<input type="text">
+<form action="/resumes" method="post">
+  <input type="text" name="authenticity_token">
+  姓名：<input type="text" name="name">
   <hr>
   <button>新增</button>
 </form>
