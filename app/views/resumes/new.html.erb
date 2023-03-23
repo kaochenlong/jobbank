@@ -1,8 +1,11 @@
 <h1>新增履歷</h1>
 
-<form action="/resumes" method="post">
-  <input type="text" name="authenticity_token">
-  姓名：<input type="text" name="name">
+<%= form_for(@resume) do |f| %>
+  <%= f.label :name, '姓名' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email, 'Email' %>
+  <%= f.email_field :email %>
   <hr>
-  <button>新增</button>
-</form>
+  <%= f.submit %>
+<% end %>
