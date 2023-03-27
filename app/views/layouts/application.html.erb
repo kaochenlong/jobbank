@@ -11,12 +11,7 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-        <button>X</button>
-      </div>
-    <% end %>
+    <%= render 'shared/flash' if flash.any? %>
     <%= render 'shared/navbar' %>
 
     <main>

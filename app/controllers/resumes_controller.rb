@@ -10,9 +10,7 @@ class ResumesController < ApplicationController
     @resume = Resume.new(resume_params)
 
     if @resume.save
-      # flash => kind of hash
-      # flash[:notice] = "ok"
-      redirect_to root_path, notice: 'ok'
+      redirect_to root_path, notice: '新增履歷成功'
     else
       render :new
     end
