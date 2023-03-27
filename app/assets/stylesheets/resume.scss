@@ -30,6 +30,10 @@
       }
 
       .intro {
+        a {
+          text-decoration: none;
+          color: black;
+        }
       }
     }
 
@@ -41,7 +45,26 @@
 
       .update-time {
       }
+
       .functions {
+        .btn {
+          text-decoration: none;
+          padding: 4px 8px;
+          color: white;
+          background-color: green;
+
+          &:hover {
+            background-color: lighten(green, 5%);
+          }
+        }
+
+        .btn-danger {
+          background-color: red;
+
+          &:hover {
+            background-color: lighten(red, 15%);
+          }
+        }
       }
     }
   }

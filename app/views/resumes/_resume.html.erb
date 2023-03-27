@@ -1,23 +1,29 @@
 <section class="resume-card">
   <header>
     <div class="cover">
-     <img src="https://fakeimg.pl/350x200/ff0000,128/000,255">
+     <%= link_to '#' do %>
+       <img src="https://fakeimg.pl/350x200/ff0000,128/000,255">
+     <% end %>
     </div>
   </header>
 
   <section class="info">
     <div class="basic-info">
-      <h2 class="username">姓名</h2>
-      <address class="location">居住地</address>
+      <h2 class="username"><%= resume.name %></h2>
+      <address class="location"><%= resume.city %></address>
     </div>
     <article class="intro truncate">
-      有一隻貓咪，牠非常愛睡覺，每天睡上20小時，剩下時間就在吃飯、撒尿和抓老鼠。有一天，牠突然想到一個問題：「如果我這麼懶惰，會不會被主人遺棄？」牠開始擔心，於是就決定展開「努力挑戰」，每天都會起來練習跑步、跳躍和游泳，甚至還會主動幫忙打掃家裡。不久之後，牠變得更加健康和活潑，主人也非常驚喜。從此，牠明白了一個道理：「只要肯努力，任何事都能夠實現！」
+      <%= link_to resume.intro&.truncate(75), '#' %>
     </article>
   </section>
 
   <footer>
-    <time class="update-time">更新時間</time>
-    <div class="functions">功能們</div>
+    <time class="update-time"><%= format_date(resume.updated_at) %></time>
+    <div class="functions">
+      <%= link_to '編輯', '#', class: 'btn' %>
+      <%= link_to '建立副本', '#', class: 'btn' %>
+      <%= link_to '刪除', '#', class: 'btn btn-danger' %>
+    </div>
   </footer>
 
 </section>
