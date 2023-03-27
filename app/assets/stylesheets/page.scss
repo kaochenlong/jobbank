@@ -22,3 +22,18 @@ main {
     }
   }
 }
+
+.flash {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+
+  button {
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+  }
+}

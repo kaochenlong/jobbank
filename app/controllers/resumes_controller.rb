@@ -7,12 +7,14 @@ class ResumesController < ApplicationController
   end
 
   def create
-    resume = Resume.new(resume_params)
+    @resume = Resume.new(resume_params)
 
-    if resume.save
-      redirect_to root_path
+    if @resume.save
+      # flash => kind of hash
+      # flash[:notice] = "ok"
+      redirect_to root_path, notice: 'ok'
     else
-      render html: params
+      render :new
     end
   end
 
