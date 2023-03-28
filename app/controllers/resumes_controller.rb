@@ -2,6 +2,10 @@ class ResumesController < ApplicationController
 
   def index
     @resumes = Resume.order(created_at: :desc)
+
+    if params[:keyword].present?
+      @resumes = @resumes.search(params[:keyword])
+    end
   end
 
   def show

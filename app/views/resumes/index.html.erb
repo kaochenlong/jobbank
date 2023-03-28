@@ -1,5 +1,10 @@
 <h1>履歷列表</h1>
 
+<form>
+  <input type="text" name="keyword" value="<%= params[:keyword] %>" placeholder="請輸入關鍵字...">
+  <input type="submit" value="查詢">
+</form>
+
 <%= link_to '新增履歷', new_resume_path %>
 
 <div class="resume-container">
