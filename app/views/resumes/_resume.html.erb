@@ -20,9 +20,12 @@
   <footer>
     <time class="update-time"><%= format_date(resume.updated_at) %></time>
     <div class="functions">
-      <%= link_to '編輯', '#', class: 'btn' %>
+      <%= link_to '編輯', edit_resume_path(resume), class: 'btn' %>
       <%= link_to '建立副本', '#', class: 'btn' %>
-      <%= link_to '刪除', '#', class: 'btn btn-danger' %>
+      <%= link_to '刪除', resume_path(resume),
+                         class: 'btn btn-danger',
+                         method: 'delete',
+                         data: {confirm: '確認刪除?'} %>
     </div>
   </footer>
 
