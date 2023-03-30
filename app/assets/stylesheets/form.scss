@@ -20,4 +20,15 @@ form {
     text-align: right;
     margin-right: 8px;
   }
+
+  .field_with_errors {
+    display: inline;
+
+    input[type="email"],
+    input[type="text"],
+    input[type="password"],
+    input[type="tel"] {
+      border: 1px solid red;
+    }
+  }
 }

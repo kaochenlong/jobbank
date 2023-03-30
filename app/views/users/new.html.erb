@@ -1,1 +1,33 @@
 <h1>註冊</h1>
+
+<%= form_with(model: @user) do |f| %>
+  <%= render 'shared/form/error_message', record: @user %>
+
+  <div class="field">
+    <%= f.label :email, 'Email 信箱' %>
+    <%= f.email_field :email%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, '密碼' %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, '密碼確認' %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday, '生日' %>
+    <%= f.date_field :birthday, min: 100.years.ago, max: 15.years.ago %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender, '性別' %>
+    <%= f.select :gender, User.gender_list %>
+  </div>
+
+  <%= f.submit '註冊' %>
+
+<% end %>
