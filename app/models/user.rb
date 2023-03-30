@@ -21,7 +21,14 @@ class User < ApplicationRecord
   validates :password, presence: true, confirmation: true
   validates :birthday, presence: true
 
+  before_create :encrypt_password
+
   def self.gender_list
     [ ['不公開', 0], ['男', 1], ['女', 2], ['其它', 3] ]
+  end
+
+  private
+  def encrypt_password
+    self.password = Digest::SHA1.hexdigest("7a#{self.password}9x")
   end
 end
