@@ -1,7 +1,12 @@
 class ResumesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_resume, only: [:show, :edit, :update, :destroy]
 
   def index
+    # user: 自己 1
+    # company: 全部 2
+    # staff: 全部 3
+
     @resumes = Resume.order(created_at: :desc)
 
     if params[:keyword].present?
@@ -51,4 +56,5 @@ class ResumesController < ApplicationController
   def find_resume
     @resume = Resume.find(params[:id])
   end
+
 end

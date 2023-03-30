@@ -14,8 +14,11 @@
 #  portfolio  :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  deleted_at :datetime
 #
 class Resume < ApplicationRecord
+  acts_as_paranoid
+
   validates :name, :tel, presence: true
   validates :email, presence: true, format: { with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\z/}
 
