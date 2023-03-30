@@ -23,8 +23,15 @@ class User < ApplicationRecord
 
   before_create :encrypt_password
 
-  def self.gender_list
-    [ ['不公開', 0], ['男', 1], ['女', 2], ['其它', 3] ]
+  class << self
+    def gender_list
+      [ ['不公開', 0], ['男', 1], ['女', 2], ['其它', 3] ]
+    end
+
+    def login(email:, password:)
+      encrypted_password = Digest::SHA1.hexdigest("7a#{password}9x")
+      find_by(email: email, password: encrypted_password)
+    end
   end
 
   private
