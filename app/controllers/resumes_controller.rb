@@ -16,9 +16,12 @@ class ResumesController < ApplicationController
   end
 
   def edit
+    authorize @resume
   end
 
   def update
+    authorize @resume
+
     if @resume.update(resume_params)
       redirect_to edit_resume_path(@resume), notice: "已更新成功"
     else
@@ -28,10 +31,14 @@ class ResumesController < ApplicationController
 
   def new
     @resume = Resume.new
+
+    authorize @resume
   end
 
   def create
     @resume = current_user.resumes.new(resume_params)
+
+    authorize @resume
 
     if @resume.save
       redirect_to resumes_path, notice: "新增履歷成功"
@@ -41,6 +48,8 @@ class ResumesController < ApplicationController
   end
 
   def destroy
+    authorize @resume
+
     @resume.destroy
     redirect_to resumes_path, notice: "已成功刪除"
   end
