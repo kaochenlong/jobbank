@@ -31,7 +31,7 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @resume = Resume.new(resume_params)
+    @resume = current_user.resumes.new(resume_params)
 
     if @resume.save
       redirect_to resumes_path, notice: "新增履歷成功"
