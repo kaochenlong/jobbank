@@ -10,19 +10,19 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    return User.find_by(id: session[:_user_resume_dev_]) if user_signed_in?
+    if user_signed_in?
+      return @__user__ ||= User.find_by(id: session[:_user_resume_dev_])
+    end
 
     return nil
   end
 
   def authenticate_user!
-    if not user_signed_in?
-      redirect_to sign_in_users_path
-    end
+    redirect_to sign_in_users_path if not user_signed_in?
   end
 
   def record_not_found
-    render file: Rails.root.join('public', '404.html'),
+    render file: Rails.root.join("public", "404.html"),
            layout: false,
            status: 404 and return
   end
