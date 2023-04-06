@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
   def create
     @comment = @resume.comments.new(comment_params)
 
+    authorize(@comment)
+
     if @comment.save
       # create.js.erb
     else
@@ -21,6 +23,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    authorize(@comment)
+
     @comment.destroy
     redirect_to resume_path(@comment.resume), notice: '評論已刪除'
   end
