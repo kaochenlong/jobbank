@@ -10,9 +10,16 @@
 
   <aside class="col-span-12 md:col-span-4">
     <h2 class="text-lg font-bold">評論</h2>
-    <%= form_with(model: @comment, url: resume_comments_path(@resume), local: false) do |form| %>
-      <%= form.text_area :content, class: 'w-full rounded', rows: 4 %>
-      <%= form.submit "新增評論", class: 'btn btn-primary' %>
+    <%= form_with(model: @comment, id: 'comment-form', url: resume_comments_path(@resume), local: false, data: { controller: 'comment-form' }) do |form| %>
+      <%= form.text_area :content,
+                         class: 'w-full rounded',
+                         rows: 4,
+                         data: {
+                          action: 'input->comment-form#input'
+                         } %>
+      <%= form.submit "新增評論", disabled: true, class: 'btn btn-disable', data: {
+        comment_form_target: 'button'
+      } %>
     <% end %>
     <section class="comment-list mt-2">
       <%= render @comments %>
