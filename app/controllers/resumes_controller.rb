@@ -13,6 +13,8 @@ class ResumesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @resume.comments.where(user: current_user).order(created_at: :desc)
   end
 
   def edit

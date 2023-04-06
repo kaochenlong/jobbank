@@ -10,7 +10,15 @@
   @apply px-3 py-1 text-sm;
 }
 
+.btn-xs {
+  @apply px-2 py-1 text-xs;
+}
+
 .btn-primary {
+  @apply bg-green-600 text-green-100 hover:bg-green-700;
+}
+
+.btn-danger {
   @apply bg-rose-600 text-rose-100 hover:bg-rose-700;
 }
 
