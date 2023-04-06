@@ -14,9 +14,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "paranoia", "~> 2.6"
 gem "pundit", "~> 2.3"
+gem "tailwindcss-rails", "~> 2.0"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "faker", "~> 3.1"
 end
 
 group :development do

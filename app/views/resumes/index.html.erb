@@ -5,7 +5,7 @@
   <input type="submit" value="查詢">
 </form>
 
-<%= link_to '新增履歷', new_resume_path if policy(Resume).new? %>
+<%= link_to '新增履歷', new_resume_path, class: 'btn btn-primary my-2' if policy(Resume).new? %>
 
 <div class="resume-container">
   <%= render @resumes %>
