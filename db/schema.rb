@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_31_024615) do
+ActiveRecord::Schema.define(version: 2023_04_06_044753) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.datetime "deleted_at"
+    t.integer "user_id", null: false
+    t.integer "resume_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
+    t.index ["resume_id"], name: "index_comments_on_resume_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "resumes", force: :cascade do |t|
     t.string "name"
@@ -41,4 +53,6 @@ ActiveRecord::Schema.define(version: 2023_03_31_024615) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "resumes"
+  add_foreign_key "comments", "users"
 end

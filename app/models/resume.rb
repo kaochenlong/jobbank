@@ -29,6 +29,7 @@ class Resume < ApplicationRecord
 
   # relationships
   belongs_to :user
+  has_many :comments
 
   def self.search(keyword)
     where("intro like ?", "%#{keyword}%")

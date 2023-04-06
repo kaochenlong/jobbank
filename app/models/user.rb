@@ -7,8 +7,8 @@
 #  password   :string
 #  nickname   :string
 #  birthday   :date
-#  role       :integer          default(1)
-#  gender     :integer          default(0)
+#  role       :integer          default("user")
+#  gender     :integer          default("不公開")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   # relationships
   has_many :resumes
+  has_many :comments
 
   # enum
   enum role: { user: 1, company: 2, staff: 3 }
