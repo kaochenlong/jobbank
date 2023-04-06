@@ -1,0 +1,5 @@
+var list = document.querySelector('.comment-list')
+var content = "<%= j render('comments/comment', comment: @comment) %>"
+list.insertAdjacentHTML("afterbegin", content)
+
+document.querySelector('#comment_content').value = ''

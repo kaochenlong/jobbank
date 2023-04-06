@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = @resume.comments.new(comment_params)
 
     if @comment.save
-      redirect_to resume_path(@resume), notice: '新增評論成功'
+      # create.js.erb
     else
       @comments = @resume.comments.where(user: current_user).order(created_at: :desc)
       render 'resumes/show'
