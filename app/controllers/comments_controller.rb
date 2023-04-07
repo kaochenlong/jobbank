@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_resume, only: [:create]
   before_action :find_comment, only: %i[edit update destroy]
+
+  def edit; end
 
   def create
     @comment = @resume.comments.new(comment_params)
@@ -13,16 +17,13 @@ class CommentsController < ApplicationController
     else
       @comments =
         @resume.comments.where(user: current_user).order(created_at: :desc)
-      render "resumes/show"
+      render 'resumes/show'
     end
-  end
-
-  def edit
   end
 
   def update
     if @comment.update(comment_params)
-      redirect_to @comment.resume, notice: "更新成功"
+      redirect_to @comment.resume, notice: '更新成功'
     else
       render :edit
     end

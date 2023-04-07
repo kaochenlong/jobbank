@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import Rails from "@rails/ujs"
+import Swal from "sweetalert2"
 
 export default class extends Controller {
   static targets = ["icon"]
@@ -29,16 +30,39 @@ export default class extends Controller {
     }
   }
 
+  notify(message) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer)
+        toast.addEventListener("mouseleave", Swal.resumeTimer)
+      },
+    })
+
+    Toast.fire({
+      icon: "success",
+      title: message,
+    })
+  }
+
   like() {
     this.isLiked = !this.isLiked
     this.updateIcon()
-
     Rails.ajax({
       url: `/resumes/${this.resumeId}/like`,
       type: "POST",
-      success: function ({ id, status }) {
+      success: ({ status }) => {
         // 成功的話...
-        console.log(id, status)
+        console.log(status)
+        if (status == "like") {
+          this.notify("已收藏")
+        } else {
+          this.notify("取消收藏")
+        }
       },
       error: function (error) {
         console.error("Error:", error)

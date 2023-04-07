@@ -1,5 +1,6 @@
-class ResumePolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class ResumePolicy < ApplicationPolicy
   def create?
     user.user?
   end
@@ -10,6 +11,10 @@ class ResumePolicy < ApplicationPolicy
 
   def destroy?
     created?
+  end
+
+  def like?
+    user.company?
   end
 
   class Scope < Scope

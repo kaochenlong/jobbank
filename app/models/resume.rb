@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: resumes
@@ -24,7 +26,7 @@ class Resume < ApplicationRecord
   validates :email,
             presence: true,
             format: {
-              with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\z/
+              with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\z/,
             }
 
   # relationships
@@ -35,6 +37,6 @@ class Resume < ApplicationRecord
   has_many :users, through: :favorite_resumes
 
   def self.search(keyword)
-    where("intro like ?", "%#{keyword}%")
+    where('intro like ?', "%#{keyword}%")
   end
 end

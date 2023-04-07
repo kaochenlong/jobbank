@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 
-desc "產生測試用履歷"
+desc '產生測試用履歷'
 namespace :data do
-  task :generate_resume => :environment do
-    puts "Generating Dummy Resumes..."
+  task generate_resume: :environment do
+    puts 'Generating Dummy Resumes...'
     user = User.create(
       email: Faker::Internet.email,
       password: 'password',
@@ -15,10 +16,9 @@ namespace :data do
         email: Faker::Internet.email,
         tel: Faker::PhoneNumber.cell_phone,
         intro: Faker::Lorem.paragraph(sentence_count: 3),
-        user: user
+        user:
       )
     end
-    puts "Done!"
+    puts 'Done!'
   end
 end
-

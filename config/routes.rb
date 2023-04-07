@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "pages#home"
+  root 'pages#home'
 
   resource :sessions, only: %i[create destroy]
 
   resource :users, except: %i[new destroy] do
-    get "sign_up", action: "new"
-    get "sign_in"
+    get 'sign_up', action: 'new'
+    get 'sign_in'
   end
 
   resources :resumes do
@@ -14,8 +16,8 @@ Rails.application.routes.draw do
     resources :comments, shallow: true, only: %i[create edit update destroy]
   end
 
-  get "/about", to: "pages#about"
-  get "/contact", to: "pages#contact"
+  get '/about', to: 'pages#about'
+  get '/contact', to: 'pages#contact'
 end
 
 # // POST /resumes/:id/like

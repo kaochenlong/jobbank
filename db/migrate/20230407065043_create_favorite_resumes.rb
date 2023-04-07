@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFavoriteResumes < ActiveRecord::Migration[6.1]
   def change
     create_table :favorite_resumes do |t|
