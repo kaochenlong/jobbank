@@ -11,7 +11,7 @@
   <% if policy(@comment).new? %>
     <aside class="col-span-12 md:col-span-4">
       <h2 class="text-lg font-bold">評論</h2>
-      <%= form_with(model: @comment, id: 'comment-form', url: resume_comments_path(@resume), local: false, data: { controller: 'comment-form' }) do |form| %>
+      <%= form_with(model: @comment, id: 'comment-form', url: resume_comments_path(@resume), data: { controller: 'comment-form' }) do |form| %>
         <%= form.text_area :content,
                            class: 'w-full rounded',
                            rows: 4,
@@ -20,7 +20,7 @@
           comment_form_target: 'button'
         } %>
       <% end %>
-      <section class="mt-2 comment-list">
+      <section class="mt-2" id="comment-list">
         <%= render @comments %>
       </section>
     </aside>
