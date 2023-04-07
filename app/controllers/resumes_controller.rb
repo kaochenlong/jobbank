@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_resume, only: %i[show edit update destroy]
+  before_action :find_resume, only: %i[like show edit update destroy]
 
   def index
     if current_user.user?
@@ -14,7 +14,8 @@ class ResumesController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @resume.comments.where(user: current_user).order(created_at: :desc)
+    @comments =
+      @resume.comments.where(user: current_user).order(created_at: :desc)
   end
 
   def edit
@@ -54,6 +55,10 @@ class ResumesController < ApplicationController
 
     @resume.destroy
     redirect_to resumes_path, notice: "已成功刪除"
+  end
+
+  def like
+    render json: { id: params[:id], status: "liked" }
   end
 
   private
