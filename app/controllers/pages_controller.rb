@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   end
 
   def home
+    flash[:notice] = 123
   end
 end
