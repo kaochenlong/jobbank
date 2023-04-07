@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_resume, only: [:create]
-  before_action :find_comment, only: [:edit, :update, :destroy]
+  before_action :find_comment, only: %i[edit update destroy]
 
   def create
     @comment = @resume.comments.new(comment_params)
@@ -11,8 +11,9 @@ class CommentsController < ApplicationController
     if @comment.save
       # create.js.erb
     else
-      @comments = @resume.comments.where(user: current_user).order(created_at: :desc)
-      render 'resumes/show'
+      @comments =
+        @resume.comments.where(user: current_user).order(created_at: :desc)
+      render "resumes/show"
     end
   end
 
@@ -20,13 +21,18 @@ class CommentsController < ApplicationController
   end
 
   def update
+    if @comment.update(comment_params)
+      redirect_to @comment.resume, notice: "更新成功"
+    else
+      render :edit
+    end
   end
 
   def destroy
     authorize(@comment)
 
     @comment.destroy
-    redirect_to resume_path(@comment.resume), notice: '評論已刪除'
+    redirect_to resume_path(@comment.resume), notice: "評論已刪除"
   end
 
   private
