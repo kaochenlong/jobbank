@@ -37,6 +37,10 @@ class User < ApplicationRecord
   enum role: { user: 1, company: 2, staff: 3 }
   enum gender: { "不公開": 0, "男": 1, "女": 2, "其它": 3 }
 
+  def like?(resume)
+    liked_resumes.include?(resume)
+  end
+
   class << self
     def gender_list
       genders.map { |k, v| [k, k] }

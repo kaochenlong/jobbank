@@ -58,7 +58,17 @@ class ResumesController < ApplicationController
   end
 
   def like
-    render json: { id: params[:id], status: "liked" }
+    liked = current_user.like?(@resume)
+
+    if liked
+      # 變不喜歡
+      current_user.liked_resumes.destroy(@resume)
+      render json: { id: params[:id], status: "dislike" }
+    else
+      # 變喜歡
+      current_user.liked_resumes << @resume
+      render json: { id: params[:id], status: "like" }
+    end
   end
 
   private
