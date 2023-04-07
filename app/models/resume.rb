@@ -31,6 +31,9 @@ class Resume < ApplicationRecord
   belongs_to :user
   has_many :comments
 
+  has_many :favorite_resumes
+  has_many :users, through: :favorite_resumes
+
   def self.search(keyword)
     where("intro like ?", "%#{keyword}%")
   end
