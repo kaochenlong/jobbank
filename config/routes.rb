@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resource :sessions, only: %i[create destroy]
 
+  get '/lang/:lang', to: 'locale#change', as: 'locale'
+
   resource :users, except: %i[new destroy] do
     get 'sign_up', action: 'new'
     get 'sign_in'

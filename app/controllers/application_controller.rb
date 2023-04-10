@@ -3,6 +3,8 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
+  before_action :set_locale
+
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
@@ -10,6 +12,11 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?, :current_user
 
   private
+
+  def set_locale
+    locale = session[:locale] || I18n.default_locale
+    I18n.locale = locale
+  end
 
   def user_signed_in?
     session[:_user_resume_dev_].present?
