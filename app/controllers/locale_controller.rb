@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LocaleController < ApplicationController
   def change
     lang = params[:lang]

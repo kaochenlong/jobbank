@@ -18,6 +18,17 @@ Rails.application.routes.draw do
     resources :comments, shallow: true, only: %i[create edit update destroy]
   end
 
+  # /api/v1/resumes/:id/sort
+  namespace :api do
+    namespace :v1 do
+      resources :resumes, only: [] do
+        member do
+          patch :sort
+        end
+      end
+    end
+  end
+
   get '/about', to: 'pages#about'
   get '/contact', to: 'pages#contact'
 end

@@ -31,6 +31,8 @@ class Resume < ApplicationRecord
 
   # relationships
   belongs_to :user
+  acts_as_list scope: :user
+
   has_many :comments
 
   has_many :favorite_resumes

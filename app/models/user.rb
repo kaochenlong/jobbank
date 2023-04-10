@@ -29,7 +29,7 @@ class User < ApplicationRecord
   before_create :encrypt_password
 
   # relationships
-  has_many :resumes
+  has_many :resumes, -> { order(position: :asc) }
   has_many :comments
 
   has_many :favorite_resumes

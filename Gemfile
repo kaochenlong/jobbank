@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
+gem 'acts_as_list', '~> 1.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'hotwire-rails', '~> 0.1.3'
 gem 'jbuilder', '~> 2.7'
