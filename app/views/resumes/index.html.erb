@@ -7,6 +7,6 @@
 
 <%= link_to '新增履歷', new_resume_path, class: 'btn btn-primary mt-2' if policy(Resume).new? %>
 
-<div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-2 mt-2">
+<section data-controller="sortable" class="grid grid-cols-1 gap-2 mt-2 lg:grid-cols-3 md:grid-cols-2">
   <%= render @resumes %>
-</div>
+</section>
