@@ -7,6 +7,7 @@ ruby '3.2.2'
 
 gem 'acts_as_list', '~> 1.1'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'braintree', '~> 4.10.0'
 gem 'hotwire-rails', '~> 0.1.3'
 gem 'jbuilder', '~> 2.7'
 gem 'paranoia', '~> 2.6'
@@ -19,11 +20,10 @@ gem 'tailwindcss-rails', '~> 2.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'webpacker', '~> 5.0'
-gem "braintree", "~> 4.10.0"
-
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails', '~> 2.8'
   gem 'faker', '~> 3.1'
 end
 
