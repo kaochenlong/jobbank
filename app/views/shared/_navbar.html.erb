@@ -4,6 +4,7 @@
   <ul class="flex">
 
     <% if user_signed_in? %>
+      <li class="mx-2"><%= link_to '收費', pricing_path %></li>
       <li class="mx-2"><%= current_user.email %></li>
       <li class="mx-2"><%= link_to t('nav.sign_out'), sessions_path, method: 'delete' %></li>
     <% else %>

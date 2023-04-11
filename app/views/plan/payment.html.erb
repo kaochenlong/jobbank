@@ -1,0 +1,8 @@
+<h1 class="text-2xl">方案 <%= params[:id].upcase %> - <%= @price %></h1>
+
+<%= form_with(url: pay_path(id: params[:id]),
+              data: { controller: 'braintree', token: @token }) do |form| %>
+  <%= form.submit '刷！'%>
+<% end %>
+
+<%= link_to '回上頁', :back %>

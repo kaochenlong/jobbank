@@ -29,8 +29,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/plan', to: 'plan#payment'
+  post '/pay', to: 'plan#pay'
+
   get '/about', to: 'pages#about'
   get '/contact', to: 'pages#contact'
+  get '/pricing', to: 'pages#pricing'
 end
-
-# // POST /resumes/:id/like
