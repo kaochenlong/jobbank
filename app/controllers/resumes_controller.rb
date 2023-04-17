@@ -11,6 +11,7 @@ class ResumesController < ApplicationController
                  Resume.order(created_at: :desc)
                end
 
+    @resumes = @resumes.page(params[:page]).per(2)
     @resumes = @resumes.search(params[:keyword]) if params[:keyword].present?
   end
 

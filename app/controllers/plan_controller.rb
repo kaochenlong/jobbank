@@ -12,21 +12,25 @@ class PlanController < ApplicationController
   end
 
   def pay
-    id = params[:id]
-    price = available_plans[id]
+    plan = params[:id]
+    amount = available_plans[plan]
     nonce = params[:nonce]
 
     # 建立訂單
+    order = current_user.orders.create(plan:, amount:)
 
     result = gateway.transaction.sale(
-      amount: price,
+      amount:,
       payment_method_nonce: nonce
     )
 
     if result.success?
-      # 把訂單設定為已付款
+      # 把訂單設定為 paid
+      order.pay!
       redirect_to root_path, notice: 'ok'
     else
+      # 把訂單設定為 fail
+      order.fail!
       redirect_to root_path, alert: 'fail'
     end
   end

@@ -5,11 +5,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
+gem 'aasm', '~> 5.5'
 gem 'acts_as_list', '~> 1.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'braintree', '~> 4.10.0'
 gem 'hotwire-rails', '~> 0.1.3'
 gem 'jbuilder', '~> 2.7'
+gem 'kaminari', '~> 1.2'
 gem 'paranoia', '~> 2.6'
 gem 'puma', '~> 5.0'
 gem 'pundit', '~> 2.3'
@@ -31,6 +33,7 @@ group :development do
   gem 'annotate', '~> 3.2'
   gem 'foreman', '~> 0.87.2'
   gem 'listen', '~> 3.3'
+  gem 'rails-erd', '~> 1.7'
   gem 'rubocop-rails', '~> 2.19'
   gem 'web-console', '>= 4.1.0'
 end

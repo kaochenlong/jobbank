@@ -35,6 +35,8 @@ class User < ApplicationRecord
   has_many :favorite_resumes
   has_many :liked_resumes, through: :favorite_resumes, source: :resume
 
+  has_many :orders
+
   # enum
   enum role: { user: 1, company: 2, staff: 3, vip: 4 }
   enum gender: { '不公開': 0, '男': 1, '女': 2, '其它': 3 }
