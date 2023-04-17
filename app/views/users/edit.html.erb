@@ -10,8 +10,8 @@
 
   <% if @user.avatar.file.present? %>
   <div data-controller="users--avatar"
-       class="relative max-w-xl bg-green-300 border-2">
-    <%= image_tag @user.avatar.url, class: 'w-full' %>
+       class="relative max-w-xs bg-green-300 border-2">
+    <%= image_tag @user.avatar.thumb.url, class: 'w-full' %>
     <button data-action="click->users--avatar#remove"
             class="absolute z-50 flex items-center justify-center w-10 h-10 p-2 text-2xl bg-white border rounded-full select-none hover:bg-slate-200 -top-4 -right-4">X</button>
   </div>
