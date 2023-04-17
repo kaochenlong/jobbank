@@ -18,3 +18,6 @@ application.register("flash", FlashController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
+
+import Users__AvatarController from "./users/avatar_controller"
+application.register("users--avatar", Users__AvatarController)

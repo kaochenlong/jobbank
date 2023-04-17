@@ -15,6 +15,8 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+
   # validations
   validates :email,
             presence: true,

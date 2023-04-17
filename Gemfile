@@ -43,3 +43,5 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'webdrivers', '~> 5.2'
 end
+
+gem "carrierwave", "~> 2.2"

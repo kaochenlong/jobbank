@@ -1,0 +1,37 @@
+<h1>編輯</h1>
+
+<%= form_with(model: @user, url: users_path) do |f| %>
+  <%= render 'shared/form/error_message', record: @user %>
+
+  <div class="field">
+    <%= f.label :avatar, '大頭照' %>
+    <%= f.file_field :avatar%>
+  </div>
+
+  <% if @user.avatar.file.present? %>
+  <div data-controller="users--avatar"
+       class="relative max-w-xl bg-green-300 border-2">
+    <%= image_tag @user.avatar.url, class: 'w-full' %>
+    <button data-action="click->users--avatar#remove"
+            class="absolute z-50 flex items-center justify-center w-10 h-10 p-2 text-2xl bg-white border rounded-full select-none hover:bg-slate-200 -top-4 -right-4">X</button>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email, 'Email 信箱' %>
+    <%= f.email_field :email%>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday, '生日' %>
+    <%= f.date_field :birthday, min: 100.years.ago, max: 15.years.ago %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender, '性別' %>
+    <%= f.select :gender, User.gender_list %>
+  </div>
+
+  <%= f.submit '更新', class: 'btn btn-primary' %>
+
+<% end %>

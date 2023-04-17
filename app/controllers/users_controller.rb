@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = current_user
+  end
+
   def create
     @user = User.new(user_params)
 
@@ -15,6 +19,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = current_user
+
+    if @user.update(user_params)
+      redirect_to edit_users_path, notice: 'ok'
+    else
+      render :edit
+    end
+  end
+
   def sign_in
     @user = User.new
   end
@@ -22,6 +36,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :birthday, :gender)
+    params.require(:user).permit(:email, :password, :password_confirmation, :birthday, :gender, :avatar, :remove_avatar)
   end
 end
