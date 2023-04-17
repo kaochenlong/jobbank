@@ -33,3 +33,7 @@
 .drag-ghost {
   @apply bg-blue-300;
 }
+
+.hljs-string {
+  @apply font-bold;
+}

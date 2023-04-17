@@ -10,6 +10,9 @@ application.register("braintree", BraintreeController)
 import CommentFormController from "./comment_form_controller"
 application.register("comment-form", CommentFormController)
 
+import Comments__MarkdownController from "./comments/markdown_controller"
+application.register("comments--markdown", Comments__MarkdownController)
+
 import FavoriteController from "./favorite_controller"
 application.register("favorite", FavoriteController)
 

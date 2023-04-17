@@ -1,7 +1,7 @@
 <%= turbo_frame_tag(comment) do %>
   <%= Time.current %>
   <article class="mb-2 border-b">
-    <p>
+    <p data-controller="comments--markdown">
       <%= comment.content %>
     </p>
     <time class="text-xs text-gray-500">
