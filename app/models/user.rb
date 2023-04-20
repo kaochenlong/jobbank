@@ -26,6 +26,9 @@ class User < ApplicationRecord
             }
   validates :password, presence: true, confirmation: true
   validates :birthday, presence: true
+  validates :agree_to_terms, acceptance: true
+
+  attr_accessor :agree_to_terms
 
   # callbacks
   before_create :encrypt_password

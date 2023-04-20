@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, notice: '註冊成功'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -36,6 +36,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :birthday, :gender, :avatar, :remove_avatar)
+    params.require(:user).permit(:email, :password, :password_confirmation, :birthday, :gender, :avatar, :remove_avatar, :agree_to_terms)
   end
 end

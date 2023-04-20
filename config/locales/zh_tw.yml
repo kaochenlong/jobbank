@@ -2,6 +2,18 @@ zh_tw:
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            email:
+              blank: '必填'
+              invalid: '格式有問題喔~~~'
+            password:
+              blank: '必填'
+            birthday:
+              blank: '必填'
+            agree_to_terms:
+              accepted: '請勾選同意'
+
         resume:
           attributes:
             name:
@@ -11,6 +23,7 @@ zh_tw:
             email:
               blank: '一定要寫喔!!!'
               invalid: '格式有問題喔~~~'
+
   nav:
     sign_up: '註冊'
     sign_in: '登入'

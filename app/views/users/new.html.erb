@@ -1,6 +1,6 @@
 <h1>註冊</h1>
 
-<%= form_with(model: @user) do |f| %>
+<%= form_with(model: @user, data: { turbo: false }) do |f| %>
   <%= render 'shared/form/error_message', record: @user %>
 
   <div class="field">
@@ -26,6 +26,11 @@
   <div class="field">
     <%= f.label :gender, '性別' %>
     <%= f.select :gender, User.gender_list %>
+  </div>
+
+  <div class="flex items-center">
+    <%= f.check_box :agree_to_terms, class: 'mx-2' %>
+    <%= f.label :agree_to_terms, '我同意網站的隱私權及使用條款', class: 'w-full text-left' %>
   </div>
 
   <%= f.submit '註冊', class: 'btn btn-primary' %>
