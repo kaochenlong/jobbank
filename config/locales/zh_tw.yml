@@ -1,4 +1,16 @@
 zh_tw:
+  activerecord:
+    errors:
+      models:
+        resume:
+          attributes:
+            name:
+              blank: '必填'
+            tel:
+              blank: '必填'
+            email:
+              blank: '一定要寫喔!!!'
+              invalid: '格式有問題喔~~~'
   nav:
     sign_up: '註冊'
     sign_in: '登入'
