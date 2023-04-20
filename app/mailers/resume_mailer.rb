@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ResumeMailer < ApplicationMailer
   def new_resume(user)
     @url  = 'http://example.com/login'

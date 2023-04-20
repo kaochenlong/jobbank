@@ -9,6 +9,7 @@ gem 'aasm', '~> 5.5'
 gem 'acts_as_list', '~> 1.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'braintree', '~> 4.10.0'
+gem 'carrierwave', '~> 2.2'
 gem 'hotwire-rails', '~> 0.1.3'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari', '~> 1.2'
@@ -32,6 +33,7 @@ end
 group :development do
   gem 'annotate', '~> 3.2'
   gem 'foreman', '~> 0.87.2'
+  gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.3'
   gem 'rails-erd', '~> 1.7'
   gem 'rubocop-rails', '~> 2.19'
@@ -43,5 +45,3 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'webdrivers', '~> 5.2'
 end
-
-gem "carrierwave", "~> 2.2"
