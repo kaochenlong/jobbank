@@ -22,5 +22,8 @@ application.register("flash", FlashController)
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
 
+import Ui__TagController from "./ui/tag_controller"
+application.register("ui--tag", Ui__TagController)
+
 import Users__AvatarController from "./users/avatar_controller"
 application.register("users--avatar", Users__AvatarController)

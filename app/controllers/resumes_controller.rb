@@ -11,8 +11,9 @@ class ResumesController < ApplicationController
                  Resume.order(created_at: :desc)
                end
 
-    @resumes = @resumes.page(params[:page]).per(2)
-    @resumes = @resumes.search(params[:keyword]) if params[:keyword].present?
+    @resumes = @resumes.search(params[:keyword]).records if params[:keyword].present?
+
+    @resumes = @resumes.page(params[:page]).per(6)
   end
 
   def show
@@ -90,7 +91,8 @@ class ResumesController < ApplicationController
       :city,
       :education,
       :experience,
-      :portfolio
+      :portfolio,
+      :tag
     )
   end
 

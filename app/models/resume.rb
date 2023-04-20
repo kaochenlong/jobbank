@@ -20,6 +20,9 @@
 #  user_id    :integer
 #
 class Resume < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   acts_as_paranoid
 
   validates :name, :tel, presence: true
@@ -38,7 +41,7 @@ class Resume < ApplicationRecord
   has_many :favorite_resumes
   has_many :users, through: :favorite_resumes
 
-  def self.search(keyword)
-    where('intro like ?', "%#{keyword}%")
-  end
+  # def self.search(keyword)
+  #   where('intro like ?', "%#{keyword}%")
+  # end
 end
