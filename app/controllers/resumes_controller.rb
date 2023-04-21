@@ -39,7 +39,7 @@ class ResumesController < ApplicationController
 
     if @resume.save
       # 寄信
-      ResumeMailer.new_resume(current_user).deliver_later
+      # ResumeMailer.new_resume(current_user).deliver_later
       redirect_to resumes_path, notice: '新增履歷成功'
     else
       render :new
@@ -92,7 +92,8 @@ class ResumesController < ApplicationController
       :education,
       :experience,
       :portfolio,
-      :tag
+      :tag,
+      :tag_list
     )
   end
 

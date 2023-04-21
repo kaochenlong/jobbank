@@ -20,6 +20,8 @@
 #  user_id    :integer
 #
 class Resume < ApplicationRecord
+  acts_as_taggable_on :tags
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 

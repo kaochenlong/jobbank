@@ -62,6 +62,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts-as-taggable-on (9.0.1)
+      activerecord (>= 6.0, < 7.1)
     acts_as_list (1.1.0)
       activerecord (>= 4.2)
     addressable (2.8.3)
@@ -257,10 +259,6 @@ GEM
       thor (~> 1.0)
     rainbow (3.1.1)
     rake (13.0.6)
-    ransack (4.0.0)
-      activerecord (>= 6.1.5)
-      activesupport (>= 6.1.5)
-      i18n
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -357,6 +355,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm (~> 5.5)
+  acts-as-taggable-on (~> 9.0)
   acts_as_list (~> 1.1)
   annotate (~> 3.2)
   bootsnap (>= 1.4.4)
@@ -379,7 +378,6 @@ DEPENDENCIES
   pundit (~> 2.3)
   rails (~> 6.1.7, >= 6.1.7.3)
   rails-erd (~> 1.7)
-  ransack (~> 4.0)
   rubocop-rails (~> 2.19)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)

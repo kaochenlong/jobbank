@@ -19,7 +19,6 @@ gem 'paranoia', '~> 2.6'
 gem 'puma', '~> 5.0'
 gem 'pundit', '~> 2.3'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
-gem 'ransack', '~> 4.0'
 gem 'sass-rails', '>= 6'
 gem 'sqlite3', '~> 1.4'
 gem 'tailwindcss-rails', '~> 2.0'
@@ -48,3 +47,5 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'webdrivers', '~> 5.2'
 end
+
+gem 'acts-as-taggable-on', '~> 9.0'

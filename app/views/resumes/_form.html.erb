@@ -2,11 +2,8 @@
   <%= render 'shared/form/error_message', record: resume %>
 
   <div class="field">
-    <%= f.label :tag, '標籤' %>
-    <div data-controller="ui--tag"
-         data-ui--tag-style-value="px-3 py-2 border border-slate-700 w-52">
-      <%= f.text_field :tag %>
-    </div>
+    <%= f.label :tag_list, '標籤' %>
+    <%= f.text_field :tag_list %>
   </div>
 
   <div class="field">
